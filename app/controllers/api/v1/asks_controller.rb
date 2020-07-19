@@ -1,7 +1,7 @@
 module Api
     module V1
         class AsksController < ApplicationController
-            
+            protect_from_forgery with: :null_session
             def index
               if params.key?(:theme_id) then
               asks = Ask.where(theme_id: params[:theme_id]).all

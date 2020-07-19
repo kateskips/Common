@@ -1,8 +1,9 @@
 module Api
     module V1
         class ThemesController < ApplicationController
+            protect_from_forgery with: :null_session
             def index
-                themes = Themes.all
+                themes = Theme.all
                 render json: ThemeSerializer.new(themes).serialized_json
              end
 
@@ -33,7 +34,7 @@ module Api
 
             private
 
-            def user_params
+            def theme_params
               params.require(:theme).permit(:topic)
             end
         end
