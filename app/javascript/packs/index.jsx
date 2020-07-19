@@ -5,11 +5,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css'
-import Home from './components/Home/Home'
-
+//import Home from './components/Home/Home'
+import App from './components/App'
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Home />,
+    <App />,
     document.body.appendChild(document.createElement('div')),
   )
 })
