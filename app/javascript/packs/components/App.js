@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Themes from './Themes/Themes'
 import Theme from './Theme/Theme'
 import styled from 'styled-components';
+import './App.css'
 const App = () => {
     return (
         <Switch>

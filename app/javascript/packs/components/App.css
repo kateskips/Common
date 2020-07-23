@@ -1,0 +1,40 @@
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: olivedrab;
+}
+
+.home {
+    background-image: url(https://static8.depositphotos.com/1004062/1004/i/950/depositphotos_10049044-stock-photo-paper-texture-may-use-as.jpg);
+}
+
+.card {
+    font-family: 'Roboto',
+    sans-serif;
+}
+
+.header {
+    font-family: 'Pacifico',
+    cursive;
+    font-size: 60px;
+}
+
+h1 {
+    font-family: 'Pacifico',
+    cursive;
+}
+
+h4 {
+    font-family: 'Roboto',
+    sans-serif;
+}
+
+body {
+    background-image: url('https://static8.depositphotos.com/1004062/1004/i/950/depositphotos_10049044-stock-photo-paper-texture-may-use-as.jpg');
+    font-family: 'Roboto',
+    sans-serif;
+}
