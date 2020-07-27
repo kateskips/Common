@@ -3,8 +3,6 @@ import axios from 'axios';
 import Theme from './Theme'
 import styled from 'styled-components'
 
-
-
 const Home = styled.div`
 text-align: center;
 max-width: 1200px;
@@ -61,7 +59,6 @@ const Themes = () => {
                 <Subheader>
                 <h4>Thoughtful ways to bond with a fellow human.</h4>
                 </Subheader> 
-                <NavBar />
         <Grid>
             {grid}
             </Grid>
