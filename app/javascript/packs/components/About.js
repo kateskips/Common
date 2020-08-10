@@ -1,40 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
+import HomeWrapper from './HomeWrapper'
 
-const Home = styled.div`
-text-align: center;
-max-width: 1200px;
-margin-left: auto;
-margin-right: auto;
-`
-const Header = styled.div`
-padding: 100px 100px 10px 100px;
-
-h1 {
-   font-size: 85px;
-}
-`
-const Subheader = styled.div`
-font-weight: 300;
-font-size: 10px;
-`
 
 function About() {
     return (
-        <Home>
-            <Header>
-                <h1>Common</h1>
-                <Subheader>
-                    <h4>Thoughtful ways to bond with a fellow human.</h4>
-                </Subheader>
-            </Header>
-            <div>
+        <div>
+            <HomeWrapper />
                 <center>
                     <h1>About</h1>
-                    <p>blah blah blah blah blah blah blah</p>
+                    <br></br>
+                    <p>Common all started from a nursing home question card set that I obtained at a local thriftstore in Long Island. This card set was made for the youth to use this set in inititating conversations with seniors. Sometimes it is hard for people to connect with older generations. This in return helps connect and bond with a fellow human being, no matter the age.</p>
                 </center>
             </div>
-        </Home>
     )
 }
 
