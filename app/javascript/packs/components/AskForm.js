@@ -72,8 +72,8 @@ class AskForm extends Component {
                             {options}
                         </select>
                     </div>
+                    <input type="submit" value="Submit" />
                 </form>
-                <button type="submit">Submit</button>
             </div>
         )
     }
