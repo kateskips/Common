@@ -1,8 +1,14 @@
 import React from 'react';
+import HomeWrapper from './HomeWrapper'
+import AskForm from './AskForm'
+import styled from 'styled-components'
 
 const Create = () => {
     return (
-        <h1>this is where the form goes to create a question.</h1>
+        <div>
+            <HomeWrapper />
+            <AskForm />
+        </div>
     )
 }
 
