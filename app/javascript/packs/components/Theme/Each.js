@@ -4,10 +4,7 @@ const Each = (props) => {
     const { topic } = props.attributes
     return (
         <div className="wrapper">
-            <div className="theme-name"><h1>{topic}</h1>
-                <div className="theme-questions">
-                </div>
-            </div>
+            <div className="themeName"><h1><u>{topic}</u></h1></div>
         </div>
 
     )
