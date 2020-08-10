@@ -8,7 +8,7 @@ module Api
         else
           asks = Ask.all
         end
-        render json: AskSerializer.new(asks).serialized_json
+        render json: asks
       end
 
       def show
@@ -20,9 +20,10 @@ module Api
         ask = Ask.new(ask_params)
 
         if ask.save  
-          render json: AskSerializer.new(ask).serialized_json
+          render json: {status: 'Success', message: 'Entry Complete'}, status: :ok
         else
           render json: { error: theme.errors.messages}, status: 422
+        ##  render json: {status: 'Error', message: 'Entry Not Complete'}, status: :unprocessable_entity
         end
       end
 
