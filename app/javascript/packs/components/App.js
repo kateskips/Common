@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import './App.css'
 import About from './About'
 import Create from './Create'
+import AskForm from './AskForm'
 
 const App = () => {
   return (
