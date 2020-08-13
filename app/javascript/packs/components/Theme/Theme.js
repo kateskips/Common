@@ -78,6 +78,7 @@ const Theme = (props) => {
     const grid = asks.map(item => {
         return (
             <Ask
+                key={item.id}
                 id={item.id}
                 question={item.question}
             />
