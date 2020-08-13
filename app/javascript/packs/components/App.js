@@ -8,6 +8,7 @@ import './App.css'
 import About from './About'
 import Create from './Create'
 import AskForm from './AskForm'
+import HomeWrapper from './HomeWrapper'
 
 const App = () => {
   return (
