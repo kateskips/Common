@@ -22,6 +22,7 @@ font-size: 10px;
 
 function HomeWrapper() {
     return (
+        <div>
         <Home>
             <Header>
                 <h1>Common</h1>
@@ -29,7 +30,8 @@ function HomeWrapper() {
                     <h4>Thoughtful ways to bond with a fellow human.</h4>
                 </Subheader>
             </Header>
-        </Home>
+            </Home>
+        </div>
     )
 }
 
