@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import HomeWrapper from '../HomeWrapper';
 
 const Card = styled.div`
 border: 1.5px solid #000000;
