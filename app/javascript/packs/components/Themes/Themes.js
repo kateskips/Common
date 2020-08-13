@@ -1,26 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import Theme from './Theme'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-
-const Home = styled.div`
-text-align: center;
-max-width: 1200px;
-margin-left: auto;
-margin-right: auto;
-`
-const Header = styled.div`
-padding: 100px 100px 10px 100px;
-
-h1 {
-   font-size: 85px;
-}
-`
-const Subheader = styled.div`
-font-weight: 300;
-font-size: 10px;
-`
+import Theme from './Theme';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import HomeWrapper from '../HomeWrapper';
 
 const Grid = styled.div`
 display: grid;
@@ -82,16 +65,11 @@ const Themes = () => {
     })
 
     return (
-        <Home>
-          <Header>
-                <h1>Common</h1>
-                <Subheader>
-                <h4>Thoughtful ways to bond with a fellow human.</h4>
-                </Subheader> 
-        <Grid>
+        <div>
+        <HomeWrapper />
+          <Grid>
             {grid}
             </Grid>
-            </Header>
             <img src="https://64.media.tumblr.com/7973e37fcdd513932e199fada987ad48/tumblr_mqh3isKTJX1rs2sbno1_500.gif"></img>
             <Buttons className="buttons"><Link to='/about'>
                 <AboutButton type="button" className="About-button">About</AboutButton>
@@ -100,7 +78,7 @@ const Themes = () => {
                     <CreateButton type="button" className="Create-button">Create</CreateButton>
                 </Link>
             </Buttons>
-        </Home>
+        </div>
     )
 }
 export default Themes;
