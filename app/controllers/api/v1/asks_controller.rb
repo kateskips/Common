@@ -2,6 +2,7 @@ module Api
   module V1
     class AsksController < ApplicationController
       protect_from_forgery with: :null_session
+     skip_before_action :verify_authenticity_token
       def index
         if params.key?(:theme_id) then
           asks = Ask.where(theme_id: params[:theme_id]).all
@@ -12,35 +13,28 @@ module Api
       end
 
       def show
-        ask = Ask.find_by(id: params[:id])
-        render json: AskSerializer.new(ask).serialized_json
-      end
+      ask = Ask.find_by(id: params[:id])
+      render json: {id: ask.id, question: ask.question, theme_id:ask.theme.topic}
+    end
 
       def create
-        ask = Ask.new(ask_params)
-
+         ask = Ask.new(ask_params)
         if ask.save  
           render json: {status: 'Success', message: 'Entry Complete'}, status: :ok
         else
-          render json: { error: theme.errors.messages}, status: 422
+          render json: { error: 'Unsuccessful', message: 'Entry not Complete'}, status: 422
         ##  render json: {status: 'Error', message: 'Entry Not Complete'}, status: :unprocessable_entity
         end
       end
 
       def update
-        ask = Ask.find_by(id: params[:id])
-
-        if ask.update(ask_params)  
-          render json: AskSerializer.new(ask).serialized_json
-        else
-          render json: { error: theme.errors.messages}, status: 422
-        end
-      end
+      render json: ask.update(ask_params)
+    end
 
       private
 
       def ask_params
-        params.require(:ask).permit(:question, :theme_id)
+        params.permit(:question, :theme_id)
       end
 
     end
