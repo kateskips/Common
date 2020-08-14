@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
 
 class AskForm extends Component {
     constructor(props) {
@@ -12,6 +11,7 @@ class AskForm extends Component {
             themes: []
         }
     };
+
 
     componentDidMount() {
         fetch('http://localhost:3000/api/v1/themes.json')
@@ -27,56 +27,69 @@ class AskForm extends Component {
 
 
     changeHandler = (e) => {
-        console.log(`target name: ${e.target.name}`)
-        console.log(`target value: ${e.target.value}`)
-
-        console.log(`question before: ${this.state.question}`)
-        console.log(`theme id before: ${this.state.theme_id}`)
+        //console.log(`target name: ${e.target.name}`)
+        //console.log(`target value: ${e.target.value}`)
+        //console.log(`question before: ${this.state.question}`)
+        //console.log(`theme id before: ${this.state.theme_id}`)
         this.setState({ [e.target.name]: e.target.value })
-        console.log(`question after: ${this.state.question}`)
-        console.log(`theme id after: ${this.state.theme_id}`)
+        //console.log(`question after: ${this.state.question}`)
+        //console.log(`theme id after: ${this.state.theme_id}`)
     };
 
     submitHandler = (e) => {
+        
+        alert('Your question was submitted!');
+
+        fetch('http://localhost:3000/api/v1/asks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        }).then(function (resp) {
+            console.log(resp)
+            return resp.json()
+        })
         e.preventDefault()
-        console.log(this.state)
-        axios.post('http://localhost:3000/api/v1/asks', this.state
+    };
+
+
+
+        /* axios.post('/api/v1/asks', this.state) 
             .then(resp => {
                 console.log(resp)
+                console.log(resp.data)
             })
             .catch(error => {
                 console.log(error)
             })
-
-        )
-    };
+            */
+    
 
     render() {
         const { question, theme_id, themes } = this.state
         console.log(`themes: ${themes}`)
         const options = themes.map(item => (
-            <option value={item.id}>{item.attributes.topic}</option>
+            <option key={item.id} value={item.id}>{item.attributes.topic}</option>
         ))
         return (
-            <div className="wrapper">
+            <div>
                 <form onSubmit={this.submitHandler}>
-                    <div>
+                    <label>
+                        Question:
                         <input type="text"
                             name="question"
                             value={question}
                             onChange={this.changeHandler}
                         />
-                    </div>
-                    <div>
+                    </label>
                         <select name="theme_id" onChange={this.changeHandler}>
                             {options}
                         </select>
-                    </div>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit"/>
                 </form>
             </div>
         )
     }
 }
-
 export default AskForm;
