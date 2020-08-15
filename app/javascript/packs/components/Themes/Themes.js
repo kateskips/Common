@@ -14,7 +14,7 @@ padding: 20px;
 `
 const AboutButton = styled.button`
 border: 2px solid black;
-background-color: #FA9D00;
+background-color: #f5c5bd;
 max-width: 100px;
 margin-left: auto;
 margin-right: auto;
@@ -25,7 +25,7 @@ border-radius: 3px;
 
 const CreateButton = styled.button`
 border: 2px solid black;
-background-color: #ED0026;
+background-color: #f9cd7c;
 max-width: 100px;
 margin-left: auto;
 margin-right: auto;
@@ -66,11 +66,14 @@ const Themes = () => {
 
     return (
         <div>
-        <HomeWrapper />
+            <HomeWrapper />
+            <br></br>
           <Grid>
-            {grid}
+                {grid}
             </Grid>
-            <img src="https://64.media.tumblr.com/7973e37fcdd513932e199fada987ad48/tumblr_mqh3isKTJX1rs2sbno1_500.gif"></img>
+            <center>
+                <img src="https://64.media.tumblr.com/7973e37fcdd513932e199fada987ad48/tumblr_mqh3isKTJX1rs2sbno1_500.gif"></img>
+            </center>
             <Buttons className="buttons"><Link to='/about'>
                 <AboutButton type="button" className="About-button">About</AboutButton>
             </Link>
