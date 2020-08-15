@@ -4,29 +4,12 @@ import styled from 'styled-components'
 import Each from './Each'
 import { Link } from 'react-router-dom'
 import Ask from './Ask'
+import HomeWrapper from '../HomeWrapper'
  
-    
-const Home = styled.div`
-text-align: center;
-max-width: 1200px;
-margin-left: auto;
-margin-right: auto;
-`
-const Header = styled.div`
-padding: 100px 100px 10px 100px;
 
-h1 {
-   font-size: 85px;
-}
-`
-const Subheader = styled.div`
-font-weight: 300;
-font-size: 10px;
-`
-
-const BackButton = styled.button`
+const BackBtn = styled.button`
 border: 2px solid black;
-background-color: #de9d92;
+background-color: #eef5b3;
 max-width: 100px;
 margin-left: auto;
 margin-right: auto;
@@ -86,15 +69,11 @@ const Theme = (props) => {
     })
   
     return (
-        <Home>
-            <Header>
-                <h1>Common</h1>
-                <Subheader>
-                    <h4>Thoughtful ways to bond with a fellow human.</h4>
-                </Subheader> 
-            </Header>
-        <div className="wrapper">
-                <div className="column">
+        <div>
+            <HomeWrapper />
+            <br></br>
+            <div className="column">
+                <center>
                     { themeLoaded &&
                         <Each attributes={theme.data.attributes} />
                     }
@@ -103,13 +82,16 @@ const Theme = (props) => {
                             {grid}
                         </Grid>
                     </div>
+                </center>
                 </div>
-                
+            <center>
+                <br></br>
                 <Link to='/'>
-                    <BackButton type="button" className="Homepage-button">Back</BackButton>
-                    </Link>
-            </div>
-        </Home>
+                    <BackBtn type="button" className="Homepage-button">Back</BackBtn>
+                </Link>
+            </center>    
+        </div>
+        
     )
 }
 export default Theme;
