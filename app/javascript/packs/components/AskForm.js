@@ -1,6 +1,38 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+const Form = styled.form`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+const Input = styled.input`
+  width: 300px;
+  height: 35px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+`;
+
+const Button = styled.button`
+  width: 130px;
+  height: 35px;
+  background-color: #8bacc3;
+  color: #fff;
+  border-radius: 3px;
+`;
+
+const AskFormed = styled.div`
+border: 1.5px solid #000000;
+max-width: 300px;
+line-height: 1.0;
+margin: 0 auto;
+padding: 1.5em;
+background: #fff;
+`
+
+
+
 class AskForm extends Component {
     constructor(props) {
         super(props)
@@ -73,22 +105,28 @@ class AskForm extends Component {
             <option key={item.id} value={item.id}>{item.attributes.topic}</option>
         ))
         return (
-            <div>
+            <AskFormed>
                 <form onSubmit={this.submitHandler}>
+                    <center>
                     <label>
-                        Question:
+                        Question
                         <input type="text"
                             name="question"
                             value={question}
                             onChange={this.changeHandler}
                         />
-                    </label>
+                        </label>
+                    </center>
+                    <center>
+                    <label>Topic
                         <select name="theme_id" onChange={this.changeHandler}>
                             {options}
-                        </select>
-                    <input type="submit" value="Submit"/>
+                            </select>
+                        </label>
+                        <Button type="submit" value="Submit">Submit</Button>
+                    </center>
                 </form>
-            </div>
+            </AskFormed>
         )
     }
 }
