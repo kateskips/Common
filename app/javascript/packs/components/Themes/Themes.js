@@ -36,7 +36,7 @@ border-radius: 3px;
 
 const AllButton = styled.button`
 border: 2px solid black;
-background-color: #f9cd7c;
+background-color: #a8eac5;
 max-width: 100px;
 margin-left: auto;
 margin-right: auto;
