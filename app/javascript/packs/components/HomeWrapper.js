@@ -22,7 +22,6 @@ font-size: 10px;
 
 function HomeWrapper() {
     return (
-        <div>
         <Home>
             <Header>
                 <h1>Common</h1>
@@ -31,7 +30,6 @@ function HomeWrapper() {
                 </Subheader>
             </Header>
             </Home>
-        </div>
     )
 }
 
