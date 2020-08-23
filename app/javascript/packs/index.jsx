@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { createStore } from 'redux'
 import allReducers from '../reducers'
+import { Provider } from 'react-redux'
 
 const store = createStore(
   allReducers,
@@ -16,11 +17,15 @@ const store = createStore(
 )
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Router>
-      <Route path="/" component={App}/>
-    </Router>,
+    <Provider store={store}>
+      <Router>
+        <Route path="/" component={App}/>
+      </Router>
+    </Provider>,
     document.body.appendChild(document.createElement('div')),
   )
 })
