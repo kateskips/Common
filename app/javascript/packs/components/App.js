@@ -9,7 +9,7 @@ import About from './About'
 import Create from './Create'
 import AskForm from './AskForm'
 import HomeWrapper from './HomeWrapper'
-import AllQuestions from './AllQuestions'
+import QuestionList from './QuestionList'
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
       <Route exact path="/themes/:id" component={Theme} />
       <Route exact path="/about" component={About} />
       <Route exact path="/create" component={Create} />
-      <Route exact path="/AllQuestions" component={AllQuestions} />
+      <Route exact path="/AllQuestions" component={QuestionList} />
       </Switch>
     )
 }
