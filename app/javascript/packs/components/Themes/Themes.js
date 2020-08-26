@@ -34,7 +34,7 @@ padding: 10px 15px;
 border-radius: 3px;
 `
 
-const AllButton = styled.button`
+const QuestionListButton = styled.button`
 border: 2px solid black;
 background-color: #a8eac5;
 max-width: 100px;
@@ -91,8 +91,8 @@ const Themes = () => {
                 <Link to='/create'>
                     <CreateButton type="button" className="Create-button">Create</CreateButton>
                 </Link>
-                <Link to='/AllQuestions'>
-                <AllButton type="button" className="All-button">All Questions</AllButton>
+                <Link to='/question-list'>
+                <QuestionListButton type="button" className="Questions-button">Question List</QuestionListButton>
             </Link>
             </Buttons>
         </div>
