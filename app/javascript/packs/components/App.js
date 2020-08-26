@@ -18,7 +18,7 @@ const App = () => {
       <Route exact path="/themes/:id" component={Theme} />
       <Route exact path="/about" component={About} />
       <Route exact path="/create" component={Create} />
-      <Route exact path="/AllQuestions" component={QuestionList} />
+      <Route exact path="/question-list" component={QuestionList} />
       </Switch>
     )
 }
