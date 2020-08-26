@@ -7,14 +7,21 @@ import 'bootstrap/dist/css/bootstrap.css'
 import App from './components/App'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { createStore } from 'redux'
-import allReducers from '../reducers'
+//import { createStore, applyMiddleware } from 'redux'
+//import allReducers from '../reducers'
+//import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
+import { render } from 'react-dom'
+import configureStore from './store/configureStore'
 
-const store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+import QuestionList from './components/QuestionList'
+
+const store = configureStore();
+//const store = createStore(
+//  allReducers,
+//  applyMiddleware(thunkMiddleware)+
+//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//)
 
 
 
@@ -22,6 +29,7 @@ const store = createStore(
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
+      <QuestionList />
       <Router>
         <Route path="/" component={App}/>
       </Router>
