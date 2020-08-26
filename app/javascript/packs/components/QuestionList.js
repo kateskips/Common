@@ -5,11 +5,36 @@ import { connect } from 'react-redux'
 //import { bindActionCreators } from 'redux'
 //import { EVERYTHING } from '../everythingAction'
 import { asksFetchData } from '../actions/questions'
+import { Link } from 'react-router-dom'
+import Ask from './Theme/Ask'
+import styled from 'styled-components'
+
+const BackBtn = styled.button`
+border: 2px solid black;
+background-color: #eef5b3;
+max-width: 100px;
+margin-left: auto;
+margin-right: auto;
+color: black;
+padding: 10px 10px;
+border-radius: 3px;
+`
+
+const Grid = styled.div`
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-gap: 20px;
+width: 100%;
+padding: 30px;
+margin-left: auto;
+margin-right: auto;
+`
 
 
 class QuestionList extends Component {
     componentDidMount() {
-        this.props.fetchData('http://localhost:3000/api/v1/asks');
+        const url = 'http://localhost:3000/api/v1/asks'
+        this.props.fetchData(url);
     }
 
     render() {
@@ -21,17 +46,26 @@ class QuestionList extends Component {
             return <p>Loading...</p>
         }
 
+        const Grid = this.props.asks.map(item => {
+            return (
+                <Ask
+                    key={item.id}
+                    id={item.id}
+                    question={item.question}
+                />
+            )
+        })
+
         return (
             <div>
-            <HomeWrapper />
-            <ul>
-                {this.props.asks.map((ask) => (
-                    <li key={ask.id}
-                        id={ask.id}
-                        question={ask.question}
-                    />
-                ))}
-            </ul>
+                <HomeWrapper />
+                <center>
+                    {Grid}                
+                    <br></br>
+                    <Link to='/'>
+                        <BackBtn type="button" className="Homepage-button">Back</BackBtn>
+                    </Link>
+                </center>    
             </div>
         )
     }
@@ -61,7 +95,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(QuestionList);
 
 
 
-
+//<ul>
+//    {this.props.asks.map((ask) => (
+//        <li key={ask.id}
+//            id={ask.id}
+//            question={ask.question}
+//        />
+//    ))}
+//</ul>
 
 
 
