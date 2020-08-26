@@ -29,7 +29,6 @@ const store = configureStore();
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
-      <QuestionList />
       <Router>
         <Route path="/" component={App}/>
       </Router>
