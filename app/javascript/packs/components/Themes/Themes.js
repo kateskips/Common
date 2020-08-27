@@ -15,7 +15,7 @@ padding: 20px;
 const AboutButton = styled.button`
 border: 2px solid black;
 background-color: #f5c5bd;
-max-width: 100px;
+width: 140px;
 margin-left: auto;
 margin-right: auto;
 color: black;
@@ -26,7 +26,7 @@ border-radius: 3px;
 const CreateButton = styled.button`
 border: 2px solid black;
 background-color: #f9cd7c;
-max-width: 100px;
+width: 140px;
 margin-left: auto;
 margin-right: auto;
 color: black;
@@ -37,7 +37,7 @@ border-radius: 3px;
 const QuestionListButton = styled.button`
 border: 2px solid black;
 background-color: #a8eac5;
-max-width: 100px;
+width: 140px;
 margin-left: auto;
 margin-right: auto;
 color: black;
@@ -47,9 +47,13 @@ border-radius: 3px;
 
 const Buttons = styled.div`
 margin: 0 auto;
-max-width: 175px;
+max-width: 450px;
 display: flex;
 justify-content: space-between;
+`
+
+const Center = styled.div`
+text-align: center;
 `
 
 const Themes = () => {
@@ -82,17 +86,18 @@ const Themes = () => {
           <Grid>
                 {grid}
             </Grid>
-            <center>
+            <Center>
                 <img src="https://64.media.tumblr.com/7973e37fcdd513932e199fada987ad48/tumblr_mqh3isKTJX1rs2sbno1_500.gif"></img>
-            </center>
-            <Buttons className="buttons"><Link to='/about'>
-                <AboutButton type="button" className="About-button">About</AboutButton>
+            </Center>
+            <Buttons className="buttons">
+                <Link to='/about'>
+                    <AboutButton type="button" className="About-button">About</AboutButton>
             </Link>
                 <Link to='/create'>
                     <CreateButton type="button" className="Create-button">Create</CreateButton>
-                </Link>
+             </Link>
                 <Link to='/question-list'>
-                <QuestionListButton type="button" className="Questions-button">Question List</QuestionListButton>
+                    <QuestionListButton type="button" className="Questions-button">Question List</QuestionListButton>
             </Link>
             </Buttons>
         </div>
