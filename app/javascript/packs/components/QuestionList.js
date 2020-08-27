@@ -18,6 +18,7 @@ margin-right: auto;
 color: black;
 padding: 10px 10px;
 border-radius: 3px;
+display: block;
 `
 
 const Grid = styled.div`
@@ -28,6 +29,7 @@ width: 100%;
 padding: 30px;
 margin-left: auto;
 margin-right: auto;
+text-align: center;
 `
 
 
@@ -46,7 +48,7 @@ class QuestionList extends Component {
             return <p>Loading...</p>
         }
 
-        const Grid = this.props.asks.map(item => {
+        const ShowGrid = this.props.asks.map(item => {
             return (
                 <Ask
                     key={item.id}
@@ -59,13 +61,13 @@ class QuestionList extends Component {
         return (
             <div>
                 <HomeWrapper />
-                <center>
-                    {Grid}                
+                <Grid>
+                    {ShowGrid} 
+                </Grid>
                     <br></br>
                     <Link to='/'>
                         <BackBtn type="button" className="Homepage-button">Back</BackBtn>
                     </Link>
-                </center>    
             </div>
         )
     }
