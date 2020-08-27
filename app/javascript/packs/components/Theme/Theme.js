@@ -16,6 +16,7 @@ margin-right: auto;
 color: black;
 padding: 10px 10px;
 border-radius: 3px;
+display: block;
 `
 
 const Grid = styled.div`
@@ -26,6 +27,9 @@ width: 100%;
 padding: 30px;
 margin-left: auto;
 margin-right: auto;
+`
+const Center = styled.div`
+text-align: center;
 `
 
 
@@ -73,7 +77,7 @@ const Theme = (props) => {
             <HomeWrapper />
             <br></br>
             <div className="column">
-                <center>
+                <Center>
                     { themeLoaded &&
                         <Each attributes={theme.data.attributes} />
                     }
@@ -82,14 +86,12 @@ const Theme = (props) => {
                             {grid}
                         </Grid>
                     </div>
-                </center>
+                </Center>
                 </div>
-            <center>
                 <br></br>
                 <Link to='/'>
                     <BackBtn type="button" className="Homepage-button">Back</BackBtn>
                 </Link>
-            </center>    
         </div>
         
     )
