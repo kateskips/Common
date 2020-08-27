@@ -8,18 +8,33 @@ const Form = styled.form`
   align-items: center;
 `
 const Input = styled.input`
-  width: 300px;
-  height: 35px;
+  width: 100%;
+  padding: 7px;
+  height: 40px;
+  margin: 7px 0 14px;
   border: 1px solid #ccc;
   background-color: #fff;
 `;
 
+const Label = styled.label`
+width: 100%;
+`;
+
+const Select = styled.select`
+width: 100%;
+height: 40px;
+margin: 7px 0 14px;
+padding: 0 7px;
+`
+
 const Button = styled.button`
-  width: 130px;
-  height: 35px;
+  width: 140px;
+  padding: 10px;
   background-color: #8bacc3;
-  color: #fff;
+  color: #000000;
   border-radius: 3px;
+  display: block;
+  margin: 0 auto;
 `;
 
 const AskFormed = styled.div`
@@ -85,19 +100,6 @@ class AskForm extends Component {
         e.preventDefault()
     };
 
-
-
-        /* axios.post('/api/v1/asks', this.state) 
-            .then(resp => {
-                console.log(resp)
-                console.log(resp.data)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-            */
-    
-
     render() {
         const { question, theme_id, themes } = this.state
         console.log(`themes: ${themes}`)
@@ -107,24 +109,25 @@ class AskForm extends Component {
         return (
             <AskFormed>
                 <form onSubmit={this.submitHandler}>
-                    <center>
-                    <label>
+                    <Label>
                         Question
-                        <input type="text"
+                         <br />
+                        <Input type="text"
                             name="question"
                             value={question}
                             onChange={this.changeHandler}
                         />
-                        </label>
-                    </center>
-                    <center>
-                    <label>Topic
-                        <select name="theme_id" onChange={this.changeHandler}>
+                    </Label>
+                    <br />
+                    <Label>
+                        Topic
+                         <br /> 
+                        <Select name="theme_id" onChange={this.changeHandler}>
                             {options}
-                            </select>
-                        </label>
+                            </Select>
+                    </Label>
+                    <br />
                         <Button type="submit" value="Submit">Submit</Button>
-                    </center>
                 </form>
             </AskFormed>
         )
