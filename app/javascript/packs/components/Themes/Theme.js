@@ -12,14 +12,17 @@ h4 {
     font-size: 16px;
 } 
 `
+const Center = styled.div`
+text-align: center;
+`
 
 const Theme = (props) => {
     return (
         <Card>
             <TopicLink>
-                <center>
+                <Center>
                 <Link to={(`/themes/${props.id}`)}>{props.attributes.topic}</Link>
-                </center>
+                </Center>
             </TopicLink>
         </Card>
     )
