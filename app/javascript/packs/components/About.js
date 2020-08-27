@@ -11,6 +11,9 @@ margin: 0 auto;
 padding: 1.5em;
 background: #fff;
 ` 
+const Headline = styled.h1`
+text-align: center;
+`
 
 const BackBtn = styled.button`
 border: 2px solid black;
@@ -21,6 +24,7 @@ margin-right: auto;
 color: black;
 padding: 10px 10px;
 border-radius: 3px;
+display: block;
 `
 
 function About() {
@@ -28,18 +32,16 @@ function About() {
         <div>
             <HomeWrapper />
             <br></br>
-                <center>
-                <h1><u>About</u></h1>
-                <br></br>
-                    <AboutWrapper>
-                        <h4>Common all started from a nursing home question card set that I obtained at a local thriftstore in Long Island. This card set was made for the youth to use this set in inititating conversations with seniors. Sometimes it is hard for people to connect with older generations. This in return helps connect and bond with a fellow human being, no matter the age.</h4>
-                </AboutWrapper>
-                <br></br>
-                <Link to='/'>
-                    <BackBtn type="button" className="Homepage-button">Back</BackBtn>
-                </Link>
-                </center>
-            </div>
+            <Headline><u>About</u></Headline>
+            <br></br>
+            <AboutWrapper>
+                <h4>Common all started from a nursing home question card set that I obtained at a local thriftstore in Long Island. This card set was made for the youth to use this set in inititating conversations with seniors. Sometimes it is hard for people to connect with older generations. This in return helps connect and bond with a fellow human being, no matter the age.</h4>
+            </AboutWrapper>
+            <br></br>
+            <Link to='/'>
+                <BackBtn type="button" className="Homepage-button">Back</BackBtn>
+            </Link>
+        </div>
     )
 }
 
