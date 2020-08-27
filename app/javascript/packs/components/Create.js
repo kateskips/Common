@@ -4,6 +4,10 @@ import AskForm from './AskForm'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+const Headline = styled.h1`
+text-align: center;
+`
+
 const BackBtn = styled.button`
 border: 2px solid black;
 background-color: #eef5b3;
@@ -13,6 +17,7 @@ margin-right: auto;
 color: black;
 padding: 10px 10px;
 border-radius: 3px;
+display: block;
 `
 
 
@@ -21,16 +26,13 @@ const Create = () => {
         <div>
             <HomeWrapper />
             <br></br>
-            <center>
-                <h1><u>Create a Question</u></h1>
-            </center>
+            <Headline><u>Create a Question</u></Headline>
             <AskForm />
             <br></br>
-            <center>
             <Link to='/'>
                 <BackBtn type="button" className="Homepage-button">Back</BackBtn>
                 </Link>
-            </center>
+            
         </div>
     )
 }
