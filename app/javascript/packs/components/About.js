@@ -37,7 +37,7 @@ function About() {
 			<br />
 			<AboutWrapper>
 				<h4>
-					Originally, a question card set from a nursing home that was found in a thrift shop later turned into a web app. The card set was made to help initiate conversations with seniors. 
+					Originally, a question card set from a nursing home that was found in a thrift shop later turned into a web app. The card set was made to help initiate conversations with seniors. However, it can be used for all generations.
 				</h4>
 			</AboutWrapper>
 			<br />
