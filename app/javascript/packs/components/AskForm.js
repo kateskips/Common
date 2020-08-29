@@ -28,7 +28,7 @@ const Select = styled.select`
 const Button = styled.button`
 	width: 140px;
 	padding: 10px;
-	background-color: #8bacc3;
+	background-color: #39A298;
 	color: #000000;
 	border-radius: 3px;
 	display: block;

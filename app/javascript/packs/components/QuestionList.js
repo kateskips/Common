@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const BackBtn = styled.button`
 	border: 2px solid black;
-	background-color: #eef5b3;
+	background-color: #A23944;
 	max-width: 100px;
 	margin-left: auto;
 	margin-right: auto;

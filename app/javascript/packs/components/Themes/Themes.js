@@ -14,7 +14,7 @@ const Grid = styled.div`
 `;
 const AboutButton = styled.button`
 	border: 2px solid black;
-	background-color: #f5c5bd;
+	background-color: #A29839;
 	width: 140px;
 	margin-left: auto;
 	margin-right: auto;
@@ -25,7 +25,7 @@ const AboutButton = styled.button`
 
 const CreateButton = styled.button`
 	border: 2px solid black;
-	background-color: #f9cd7c;
+	background-color: #A26339;
 	width: 140px;
 	margin-left: auto;
 	margin-right: auto;
@@ -36,7 +36,7 @@ const CreateButton = styled.button`
 
 const QuestionListButton = styled.button`
 	border: 2px solid black;
-	background-color: #a8eac5;
+	background-color:  #3978A2;
 	width: 140px;
 	margin-left: auto;
 	margin-right: auto;
