@@ -16,7 +16,7 @@ const Headline = styled.h1`text-align: center;`;
 
 const BackBtn = styled.button`
 	border: 2px solid black;
-	background-color: #eef5b3;
+	background-color: #A23944;
 	max-width: 100px;
 	margin-left: auto;
 	margin-right: auto;
@@ -37,7 +37,7 @@ function About() {
 			<br />
 			<AboutWrapper>
 				<h4>
-					Originally, a question card set from a nursing home that was found in a thrift shop later turned into a web app. The card set was made to help initiate conversations with seniors. However, it can be used for all generations.
+					Originally a conversation starter set from a nursing home that was found in a thrift shop, later turned into a web app. The card set was made to help initiate conversations with seniors. However, it can be used for all generations. A great way to connect with a fellow human.
 				</h4>
 			</AboutWrapper>
 			<br />
