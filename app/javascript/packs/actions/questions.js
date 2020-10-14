@@ -26,9 +26,8 @@ export function asksFetchData(url) {
                     throw Error(response.statusText);
                 }
                 dispatch(asksIsLoading(false));
-                return response;
+                return response.json();
             })
-            .then((response) => response.json())
             .then((asks) => dispatch(asksFetchDataSuccess(asks)))
             .catch(() => dispatch(asksHasErrored(true)));
     };
