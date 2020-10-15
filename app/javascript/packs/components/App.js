@@ -10,6 +10,7 @@ import Create from './Create';
 import AskForm from './AskForm';
 import HomeWrapper from './HomeWrapper';
 import QuestionList from './QuestionList';
+import Ask from './Theme/Ask';
 
 const App = () => {
 	return (
