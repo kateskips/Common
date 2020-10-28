@@ -67,6 +67,23 @@ const Theme = (props) => {
 		return <Ask key={item.id} id={item.id} question={item.question} />;
 	});
 
+	function sorting() {
+	    asks.sort((a, b) => {
+	    	let sortA = a.question.toUpperCase();
+	    	let sortB = b.question.toUpperCase();
+	    	if (sortA < sortB) {
+	    		return -1;
+	    	}
+	    	if (sortA > sortB) {
+	    		return 1;
+	    	}
+			return 0;
+		});
+		console.log(sorting)
+	}
+
+
+
 	return (
 		<div>
 			<HomeWrapper />
@@ -74,6 +91,7 @@ const Theme = (props) => {
 			<div className="column">
 				<Center>
 					{themeLoaded && <Each attributes={theme.data.attributes} />}
+					<button onClick={sorting}>Sort</button>
 					<div className="asks">
 						<Grid>{grid}</Grid>
 					</div>
