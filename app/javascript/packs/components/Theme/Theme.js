@@ -8,7 +8,7 @@ import HomeWrapper from '../HomeWrapper';
 
 const BackBtn = styled.button`
 	border: 2px solid black;
-	background-color: #A23944;
+	background-color: #a23944;
 	max-width: 100px;
 	margin-left: auto;
 	margin-right: auto;
@@ -28,16 +28,14 @@ const Grid = styled.div`
 	margin-right: auto;
 `;
 
-const Center = styled.div`
-text-align: center;
-`;
+const Center = styled.div`text-align: center;`;
 
 const Theme = (props) => {
-	const [ theme, setTheme ] = useState({});
-	const [ themeLoaded, setThemeLoaded ] = useState(false);
+	const [theme, setTheme] = useState({});
+	const [themeLoaded, setThemeLoaded] = useState(false);
 
-	const [ asks, setAsks ] = useState([]);
-	const [ asksLoaded, setAsksLoaded ] = useState(false);
+	const [asks, setAsks] = useState([]);
+	const [asksLoaded, setAsksLoaded] = useState(false);
 
 	useEffect(() => {
 		const id = props.match.params.id;
@@ -63,27 +61,57 @@ const Theme = (props) => {
 			.catch((resp) => console.log(resp));
 	}, []);
 
-	const grid = asks.map((item) => {
-		return <Ask key={item.id} id={item.id} question={item.question} />;
-	});
 
-	function sorting() {
-	    asks.sort((a, b) => {
-	    	let sortA = a.question.toUpperCase();
-	    	let sortB = b.question.toUpperCase();
-	    	if (sortA < sortB) {
-	    		return -1;
-	    	}
-	    	if (sortA > sortB) {
-	    		return 1;
-	    	}
+
+	
+
+	function sortQuestions() {
+		asks.sort((a, b) => {
+			let sortA = a.question.toUpperCase();
+			let sortB = b.question.toUpperCase();
+			if (sortA < sortB) {
+				return -1;
+			}
+			if (sortA > sortB) {
+				return 1;
+			}
 			return 0;
 		});
-		console.log(sorting)
+	}
+	
+
+	function DisplayGrid(props) {
+		const grid = asks.map((item) => {
+		return <Ask key={item.id} id={item.id} question={item.question} />;
+	   });
+		return (
+			<div className="asks">
+				<Grid>{grid}</Grid>
+			</div>
+		);
 	}
 
+	function Sorting(props) {
+		return (
+			<div className="sorting-questions">
+				<button onClick={sortQuestions}>Sort Questions</button>
+			</div>
+		);
+	};
 
-
+	//create a conditional rendering component function
+	//function AsksDisplayOrSort() {
+	//	const DisplayGridAll = props.DisplayGrid;
+	//	if (DisplayGridAll) {
+	//		return (
+	//			<DisplayGrid />
+	//		)
+	//	}
+	//	return (
+	//		<SortGrid />
+	//	)
+	//}
+	
 	return (
 		<div>
 			<HomeWrapper />
@@ -91,10 +119,8 @@ const Theme = (props) => {
 			<div className="column">
 				<Center>
 					{themeLoaded && <Each attributes={theme.data.attributes} />}
-					<button onClick={sorting}>Sort</button>
-					<div className="asks">
-						<Grid>{grid}</Grid>
-					</div>
+					<Sorting />
+					<DisplayGrid />
 				</Center>
 			</div>
 			<br />
@@ -105,6 +131,7 @@ const Theme = (props) => {
 			</Link>
 		</div>
 	);
-};
+}
+
 
 export default Theme;
