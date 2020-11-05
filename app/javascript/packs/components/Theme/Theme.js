@@ -60,17 +60,18 @@ const Theme = (props) => {
 			})
 			.catch((resp) => console.log(resp));
 	}, []);
-
 	class DisplayGrid extends React.Component {
+		//created a class method called DisplayGrid with a constructor() whose role is when a new instance is created. Super() represents the constructor of the parent class. With a state of asks.
 		constructor(props) {
 			super(props);
 			this.state = {
 				asks
-			};
-		}
+			};	
+		};
+		//created a method called sortQuestions with a setState that takes in state and props. 
 		sortQuestions() {
-			this.setState((state, props) => {
-				let asks = [...state.asks];
+			this.setState((state) => {
+				let asks = state.asks;
 				asks.sort((a, b) => {
 					let sortA = a.question.toUpperCase();
 					let sortB = b.question.toUpperCase();
@@ -86,6 +87,7 @@ const Theme = (props) => {
 			});
 		};
 		render() {
+			//a const that maps out all the questions
 			const grid = this.state.asks.map((item) => {
 				return <Ask key={item.id} id={item.id} question={item.question} />;
 			});
@@ -95,8 +97,8 @@ const Theme = (props) => {
 					<Grid>{grid}</Grid>
 				</div>
 			);
-		}
-	}
+		};
+	};
 
 	return (
 		<div>
