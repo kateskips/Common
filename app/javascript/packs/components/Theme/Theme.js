@@ -60,45 +60,7 @@ const Theme = (props) => {
 			})
 			.catch((resp) => console.log(resp));
 	}, []);
-	class DisplayGrid extends React.Component {
-		//created a class method called DisplayGrid with a constructor() whose role is when a new instance is created. Super() represents the constructor of the parent class. With a state of asks.
-		constructor(props) {
-			super(props);
-			this.state = {
-				asks
-			};	
-		};
-		//created a method called sortQuestions with a setState that takes in state and props. 
-		sortQuestions() {
-			this.setState((state) => {
-				let asks = state.asks;
-				asks.sort((a, b) => {
-					let sortA = a.question.toUpperCase();
-					let sortB = b.question.toUpperCase();
-					if (sortA < sortB) {
-						return -1;
-					}
-					if (sortA > sortB) {
-						return 1;
-					}
-					return 0;
-				});
-				return { asks };
-			});
-		};
-		render() {
-			//a const that maps out all the questions
-			const grid = this.state.asks.map((item) => {
-				return <Ask key={item.id} id={item.id} question={item.question} />;
-			});
-			return (
-				<div className="asks">
-					<button onClick={this.sortQuestions.bind(this)}>Sort</button>
-					<Grid>{grid}</Grid>
-				</div>
-			);
-		};
-	};
+	
 
 	return (
 		<div>
@@ -107,7 +69,7 @@ const Theme = (props) => {
 			<div className="column">
 				<Center>
 					{themeLoaded && <Each attributes={theme.data.attributes} />}
-					<DisplayGrid />
+					<DisplayGrid questions={asks}/>
 				</Center>
 			</div>
 			<br />
@@ -120,4 +82,67 @@ const Theme = (props) => {
 	);
 };
 
+class DisplayGrid extends React.Component {
+		//created a class method called DisplayGrid with a constructor() whose role is when a new instance is created. Super() represents the constructor of the parent class. With a state of asks.
+		constructor(props) {
+			super(props);
+			this.state = {
+				asks: [],
+				sorted: false
+			};
+			
+		};
+		//created a method called sortQuestions with a setState that takes in state and props. 
+		sortQuestions() {
+			this.setState((state) => {
+				let asks = [...this.props.questions];
+				asks.sort((a, b) => {
+					let sortA = a.question.toUpperCase();
+					let sortB = b.question.toUpperCase();
+					if (sortA < sortB) {
+						return -1;
+					}
+					if (sortA > sortB) {
+						return 1;
+					}
+					return 0;
+				});
+				return { asks,sorted:true };
+			});
+		};
+	render() {
+		let lists 
+		if (!sorted) {
+			lists = this.props.questions
+			//original
+		} else {
+			lists = this.state.asks
+			//sorted
+			}
+			//a const that maps out all the questions
+			const grid = lists.map((item) => {
+				return <Ask key={item.id} id={item.id} question={item.question} />;
+			});
+			return (
+				<div className="asks">
+					<button onClick={this.sortQuestions.bind(this)}>Sort</button>
+					<Grid>{grid}</Grid>
+				</div>
+			);
+		};
+	};
+
 export default Theme;
+
+// pass by value (Int, Booleans, Strings, Null, Undefined)
+// let a = 3
+// let b = 2
+// a = 3
+// b = a
+// console.log(b)
+
+// pass by reference (array, obj)
+// let a = [1, 2]
+// let b = a
+// a.push(4)
+// console.log(b) <- [1,2,4]
